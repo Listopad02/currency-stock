@@ -5,7 +5,10 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        
+        {/* <Routes> 
+          <Route path="/" element={<Currency />} />
+          <Route path="/currency/:id" element={<CurrencyInfo />} />
+        </Routes> */}
       </Layout>
     </div>
   );
