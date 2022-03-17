@@ -17,11 +17,11 @@ const Currency = () => {
                     <div className="content-table-item">24h change</div>
                     <div className="content-table-item">10d change</div>
                 </div>
-                <div class="section-content-table">
-					<div class="content-table-item">test</div>
-					<div class="content-table-item">test</div>
-					<div class="content-table-item">test</div>
-					<div class="content-table-item">test</div>
+                <div className="section-content-table">
+					<div className="content-table-item">test</div>
+					<div className="content-table-item">test</div>
+					<div className="content-table-item">test</div>
+					<div className="content-table-item">test</div>
 				</div>
             </div>
         </section>
