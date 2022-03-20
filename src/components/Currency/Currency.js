@@ -1,7 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import './Currency.css'
 
-const Currency = () => {
+const Currency = props => {
     return (
         <section className="section">
             <div className="section-content">
@@ -18,14 +19,21 @@ const Currency = () => {
                     <div className="content-table-item">10d change</div>
                 </div>
                 <div className="section-content-table">
-					<div className="content-table-item">test</div>
-					<div className="content-table-item">test</div>
-					<div className="content-table-item">test</div>
-					<div className="content-table-item">test</div>
+					<div className="content-table-item">{props.result}</div>
+					<div className="content-table-item">{props.result}</div>
+					<div className="content-table-item">{props.result}</div>
+					<div className="content-table-item">{props.result}</div>
 				</div>
             </div>
         </section>
     )
 }
 
-export default Currency
+function mapStateToProps(state) {
+	console.log('mapStateToProps', state)
+	return {
+		result: state.result
+	}
+}
+
+export default connect(mapStateToProps)(Currency)
