@@ -18,7 +18,8 @@ export function fetchData() {
             await axios.get(url).then(data => {
                 const answer = data.data.Valute
                 console.log(answer)
-                dispatch(currencyInfoFetch(answer))
+                const answerArr = Object.keys(answer)
+                dispatch(currencyInfoFetch(answerArr))
             })
         } catch (err) {
             console.log(err)

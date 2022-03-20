@@ -1,4 +1,5 @@
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
+import thunk from 'redux-thunk';
 import { BUTTON_CLICK_HANDLER,
          CHANGE_RESULT } from "../actions/actionTypes";
 
@@ -24,6 +25,9 @@ const rootReducer = (state = initialState, action) => {
     }
 }
 
-const store = createStore(rootReducer)
+const store = createStore(
+    rootReducer,
+    applyMiddleware(thunk)
+    )
 
 export default store

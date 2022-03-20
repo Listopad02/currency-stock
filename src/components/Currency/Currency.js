@@ -19,10 +19,10 @@ const Currency = props => {
                     <div className="content-table-item">10d change</div>
                 </div>
                 <div className="section-content-table">
-					<div className="content-table-item">{props.result}</div>
-					<div className="content-table-item">{props.result}</div>
-					<div className="content-table-item">{props.result}</div>
-					<div className="content-table-item">{props.result}</div>
+					<div className="content-table-item">{props.result[0]}</div>
+					<div className="content-table-item">{props.result[1]}</div>
+					<div className="content-table-item">{props.result[2]}</div>
+					<div className="content-table-item">{props.result[3]}</div>
 				</div>
             </div>
         </section>

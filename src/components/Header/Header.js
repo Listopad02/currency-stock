@@ -1,12 +1,11 @@
 import React from 'react'
-import { connect, useDispatch } from 'react-redux'
+import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { fetchData } from '../../redux/actions/actions'
+// import { BUTTON_CLICK_HANDLER } from '../../redux/actions/actionTypes'
 import './Header.css'
 
 const Header = props => {
-	const dispatch = useDispatch()
-
   	return (
     	<div className="header-container">
 			<div className="header-container-block">
@@ -17,7 +16,7 @@ const Header = props => {
 				<p className="header-container-text">This app allows you to track currency stock and <br /> watch details about world's money</p>
 			</div>
 			<div className="header-container-block">
-				<NavLink to={'/table'}><button className="header-container-btn" onClick={() => dispatch(props.showCurrency())}>Get Started</button></NavLink>
+				<NavLink to={'/table'}><button className="header-container-btn" onClick={() => props.fetchData()}>Get Started</button></NavLink>
 			</div>
 		</div>
 	)
@@ -32,9 +31,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		showCurrency: () => {
-			dispatch(fetchData())
-		}
+		fetchData: () => dispatch(fetchData())
 	}
 }
 
