@@ -38,6 +38,13 @@
 	color: #aaa;
 	font-size: 12px;
 }
+.content-table-link {
+	color: #2597fb;
+	text-decoration: none;
+}
+.content-table-link:hover {
+	color: #3beee4;
+}
 .section-content-table:nth-child(even) .content-table-item {
 	background-color: rgb(36, 35, 35);
 }

@@ -18,7 +18,8 @@ const rootReducer = (state = initialState, action) => {
         case CHANGE_RESULT:
             return {
                 ...state, 
-                result: action.payData
+                result: action.payData,
+                loading: false
             }
         default:
             return state

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 import Loader from '../Loader/Loader'
 import './Currency.css'
 
@@ -21,12 +22,15 @@ const Currency = props => {
                 </div>
                 {
                     props.result.length !== 0 ?
-                        <div className="section-content-table">
-                            <div className="content-table-item">{props.result[0][2]}</div>
-                            <div className="content-table-item">{props.result[0][5]}</div>
-                            <div className="content-table-item">{(props.result[0][6] - props.result[0][5]).toFixed(4)}</div>
-                            <div className="content-table-item">show more</div>
+                        props.result.map((elem, i) => (
+                        <div className="section-content-table" key={i}>
+                            <div className="content-table-item">{props.result[i][2]}</div>
+                            <div className="content-table-item">{props.result[i][5]}</div>
+                            <div className="content-table-item">{(props.result[i][6] - props.result[i][5]).toFixed(4)}</div>
+                            <div className="content-table-item"><NavLink to={'/table/' + props.result[i][0]} className="content-table-link">show more</NavLink></div>
                         </div>
+                        ))
+                        
                     : <Loader />
                 }
             </div>
