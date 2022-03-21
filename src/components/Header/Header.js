@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { fetchData } from '../../redux/actions/actions'
-// import { BUTTON_CLICK_HANDLER } from '../../redux/actions/actionTypes'
 import './Header.css'
 
 const Header = props => {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Loader from '../Loader/Loader'
 import './Currency.css'
 
 const Currency = props => {
@@ -18,12 +19,16 @@ const Currency = props => {
                     <div className="content-table-item">24h change</div>
                     <div className="content-table-item">10d change</div>
                 </div>
-                <div className="section-content-table">
-					<div className="content-table-item">{props.result[0]}</div>
-					<div className="content-table-item">{props.result[1]}</div>
-					<div className="content-table-item">{props.result[2]}</div>
-					<div className="content-table-item">{props.result[3]}</div>
-				</div>
+                {
+                    props.result.length !== 0 ?
+                        <div className="section-content-table">
+                            <div className="content-table-item">{props.result[0][2]}</div>
+                            <div className="content-table-item">{props.result[0][5]}</div>
+                            <div className="content-table-item">{(props.result[0][6] - props.result[0][5]).toFixed(4)}</div>
+                            <div className="content-table-item">show more</div>
+                        </div>
+                    : <Loader />
+                }
             </div>
         </section>
     )
