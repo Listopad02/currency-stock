@@ -35,7 +35,7 @@
 .content-table-item {
 	height: 30px;
 	width: 25%;
-	color: #aaa;
+	color: #fff;
 	font-size: 12px;
 }
 .content-table-link {
@@ -47,4 +47,10 @@
 }
 .section-content-table:nth-child(even) .content-table-item {
 	background-color: rgb(36, 35, 35);
+}
+.section-content-table:last-child .content-table-item:first-child { 
+	border-radius: 0px 0px 0px 20px; 
+}
+.section-content-table:last-child .content-table-item:last-child {
+	border-radius: 0px 0px 20px 0px; 
 }

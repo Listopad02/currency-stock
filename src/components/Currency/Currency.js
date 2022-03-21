@@ -1,10 +1,17 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect } from 'react'
+import { connect, useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { fetchData } from '../../redux/actions/actions'
 import Loader from '../Loader/Loader'
 import './Currency.css'
 
 const Currency = props => {
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchData())
+    }, [dispatch])
+
     return (
         <section className="section">
             <div className="section-content">
@@ -45,4 +52,10 @@ function mapStateToProps(state) {
 	}
 }
 
-export default connect(mapStateToProps)(Currency)
+function mapDispatchToProps(dispatch) {
+	return {
+		fetchData: () => dispatch(fetchData())
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Currency)
