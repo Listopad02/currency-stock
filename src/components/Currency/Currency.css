@@ -54,3 +54,13 @@
 .section-content-table:last-child .content-table-item:last-child {
 	border-radius: 0px 0px 20px 0px; 
 }
+.positive {
+	color: rgb(114, 226, 92);
+}
+.negative {
+	color: rgb(238, 42, 16);
+}
+.chart {
+	vertical-align: middle;
+	padding-left: 7px;
+}

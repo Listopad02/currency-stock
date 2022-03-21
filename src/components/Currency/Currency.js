@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { fetchData } from '../../redux/actions/actions'
 import Loader from '../Loader/Loader'
 import './Currency.css'
+import { AiOutlineRise, AiOutlineFall } from 'react-icons/ai'
 
 const Currency = props => {
 
@@ -29,15 +30,25 @@ const Currency = props => {
                 </div>
                 {
                     props.result.length !== 0 ?
-                        props.result.map((elem, i) => (
-                        <div className="section-content-table" key={i}>
-                            <div className="content-table-item">{props.result[i][2]}</div>
-                            <div className="content-table-item">{props.result[i][5]}</div>
-                            <div className="content-table-item">{(props.result[i][6] - props.result[i][5]).toFixed(4)}</div>
-                            <div className="content-table-item"><NavLink to={'/table/' + props.result[i][0]} className="content-table-link">show more</NavLink></div>
-                        </div>
-                        ))
-                        
+                        props.result.map((elem, i) => {
+                            let className = "content-table-item"
+                            let calculation = props.result[i][6] - props.result[i][5]
+                            if (calculation > 0) {
+                                className += ' positive'
+                            } else {
+                                className += ' negative'
+                            }
+                            return (
+                                <div className="section-content-table" key={i}>
+                                    <div className="content-table-item">{props.result[i][2]}</div>
+                                    <div className="content-table-item">{props.result[i][5]}</div>
+                                    <div className={className}>
+                                        {(props.result[i][6] - props.result[i][5]).toFixed(4)}
+                                        {calculation >= 0 ? <AiOutlineRise size={14} className="chart" /> : <AiOutlineFall size={14} className="chart" />}
+                                    </div>
+                                    <div className="content-table-item"><NavLink to={'/table/' + props.result[i][0]} className="content-table-link">show more</NavLink></div>
+                                </div>
+                        )})
                     : <Loader />
                 }
             </div>
