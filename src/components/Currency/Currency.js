@@ -3,10 +3,21 @@ import { connect, useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { fetchData } from '../../redux/actions/actions'
 import Loader from '../Loader/Loader'
-import './Currency.css'
 import { AiOutlineRise, AiOutlineFall } from 'react-icons/ai'
+import Tooltip from '@mui/material/Tooltip';
+import './Currency.css'
 
 const Currency = props => {
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleTooltipClose = () => {
+        setOpen(false);
+    };
+
+    const handleTooltipOpen = () => {
+        setOpen(true);
+    };
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -40,7 +51,9 @@ const Currency = props => {
                             }
                             return (
                                 <div className="section-content-table" key={i}>
-                                    <div className="content-table-item">{props.result[i][2]}</div>
+                                    <Tooltip title={props.result[i][4]} placement='right' arrow>
+                                        <div className="content-table-item">{props.result[i][2]}</div>
+                                    </Tooltip>
                                     <div className="content-table-item">{props.result[i][5]}</div>
                                     <div className={className}>
                                         {(props.result[i][6] - props.result[i][5]).toFixed(4)}

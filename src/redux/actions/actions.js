@@ -34,6 +34,6 @@ export function currencyInfoFetch(val) {
     }
 }
 
-export function fetchPreviousData(currencyId) {
-    const url = 'https://www.cbr-xml-daily.ru/archive/2020/06/02/daily_json.js';
-}
+// export function fetchPreviousData(currencyId) {
+//     const url = 'https://www.cbr-xml-daily.ru/archive/2020/06/02/daily_json.js';
+// }
