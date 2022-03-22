@@ -9,16 +9,6 @@ import './Currency.css'
 
 const Currency = props => {
 
-    const [open, setOpen] = React.useState(false);
-
-    const handleTooltipClose = () => {
-        setOpen(false);
-    };
-
-    const handleTooltipOpen = () => {
-        setOpen(true);
-    };
-
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchData())
@@ -43,20 +33,20 @@ const Currency = props => {
                     props.result.length !== 0 ?
                         props.result.map((elem, i) => {
                             let className = "content-table-item"
-                            let calculation = props.result[i][6] - props.result[i][5]
-                            if (calculation > 0) {
-                                className += ' positive'
-                            } else {
+                            const calculation = props.result[i][5] - props.result[i][6]
+                            if (calculation <= 0) {
                                 className += ' negative'
+                            } else {
+                                className += ' positive'
                             }
                             return (
                                 <div className="section-content-table" key={i}>
                                     <Tooltip title={props.result[i][4]} placement='right' arrow>
                                         <div className="content-table-item">{props.result[i][2]}</div>
                                     </Tooltip>
-                                    <div className="content-table-item">{props.result[i][5]}</div>
+                                    <div className="content-table-item">{props.result[i][6]}</div>
                                     <div className={className}>
-                                        {(props.result[i][6] - props.result[i][5]).toFixed(4)}
+                                        {(props.result[i][5] - props.result[i][6]).toFixed(4)}
                                         {calculation >= 0 ? <AiOutlineRise size={14} className="chart" /> : <AiOutlineFall size={14} className="chart" />}
                                     </div>
                                     <div className="content-table-item"><NavLink to={'/table/' + props.result[i][0]} className="content-table-link">show more</NavLink></div>
@@ -70,7 +60,6 @@ const Currency = props => {
 }
 
 function mapStateToProps(state) {
-	console.log('mapStateToProps', state)
 	return {
 		result: state.result
 	}

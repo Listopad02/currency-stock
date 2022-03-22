@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './Header.css'
 
-const Header = props => {
+const Header = () => {
   	return (
     	<div className="header-container">
 			<div className="header-container-block">

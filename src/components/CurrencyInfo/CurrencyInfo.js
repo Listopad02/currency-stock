@@ -1,9 +1,15 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect } from 'react'
+import { connect, useDispatch } from 'react-redux'
+import { fetchPreviousDate } from '../../redux/actions/actions'
 import './CurrencyInfo.css'
 
 const CurrencyInfo = (props) => {
-	console.log(props)
+	const dispatch = useDispatch()
+    useEffect(() => {
+		for (let i = 1; i <= 10; i++) {
+			dispatch(fetchPreviousDate(-i))
+		}
+    }, [dispatch])
 
 	return (
     	<section className="section">
@@ -24,7 +30,6 @@ const CurrencyInfo = (props) => {
 }
 
 function mapStateToProps(state) {
-	console.log('mapStateToProps', state)
 	return {
 		result: state.result
 	}
@@ -32,7 +37,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		
+		fetchPreviousDate: () => dispatch(fetchPreviousDate())
 	}
 }
 
