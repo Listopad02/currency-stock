@@ -6,7 +6,7 @@ import './CurrencyInfo.css'
 const CurrencyInfo = (props) => {
 	const dispatch = useDispatch()
     useEffect(() => {
-		for (let i = 1; i <= 10; i++) {
+		for (let i = 1; i <= 4; i++) {
 			dispatch(fetchPreviousDate(-i))
 		}
     }, [dispatch])
@@ -16,7 +16,7 @@ const CurrencyInfo = (props) => {
     		<div className="section-content">
     			<div className="section-content-info">
         			<div className="section-content-container">
-        				<h2 className="section-content-header">Market Report - </h2>
+        				<h2 className="section-content-header">Market Report</h2>
            		 		<p className="section-content-text">Current info for the past 10 days</p>
           			</div>
         		</div>
@@ -31,7 +31,7 @@ const CurrencyInfo = (props) => {
 
 function mapStateToProps(state) {
 	return {
-		result: state.result
+		daysRes: state.daysRes
 	}
 }
 
