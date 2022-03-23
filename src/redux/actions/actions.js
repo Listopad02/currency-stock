@@ -18,7 +18,6 @@ export function fetchData() {
         try {
             await axios.get(url).then(data => {
                 const answer = data.data.Valute
-                console.log(answer)
                 const answerArr = Object.keys(answer).map((value, i) => Object.values(answer[value]))
                 dispatch(currencyInfoFetch(answerArr))
             })
@@ -45,13 +44,11 @@ export function fetchPreviousDate(date) {
         const day = result.slice(0, 2)
         const month = result.slice(3, 5)
         const year = result.slice(6)
-        console.log(result)
 
         try {
             await axios.get(`https://www.cbr-xml-daily.ru/archive/${year}/${month}/${day}/daily_json.js`)
                 .then(data => {
                     const answer = data.data.Valute
-                    console.log(answer)
                     const answerArr = Object.keys(answer).map((value, i) => Object.values(answer[value]))
                     dispatch(tenDaysFetch(answerArr))
                 })

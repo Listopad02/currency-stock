@@ -3,7 +3,7 @@ import { connect, useDispatch } from 'react-redux'
 import { fetchPreviousDate } from '../../redux/actions/actions'
 import './CurrencyInfo.css'
 
-const CurrencyInfo = (props) => {
+const CurrencyInfo = () => {
 	const dispatch = useDispatch()
     useEffect(() => {
 		for (let i = 1; i <= 4; i++) {
