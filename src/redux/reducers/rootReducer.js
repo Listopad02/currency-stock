@@ -1,5 +1,5 @@
-import { applyMiddleware, createStore } from "redux";
 import thunk from 'redux-thunk';
+import { applyMiddleware, createStore } from "redux";
 import { BUTTON_CLICK_HANDLER,
          CHANGE_RESULT,
          DAYS_CHANGE } from "../actions/actionTypes";

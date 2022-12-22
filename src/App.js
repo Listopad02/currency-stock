@@ -5,7 +5,7 @@ import CurrencyInfo from './components/CurrencyInfo/CurrencyInfo'
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Layout>
         <Routes>
           <Route path='/table' element={<Currency />} />
